@@ -39,7 +39,35 @@ import React, {Component} from 'react'
 function app() {
     // start app
     // new Router()
-    DOM.render(<p>test 2</p>, document.querySelector('.container'))
+
+    var ironTime={
+    		time: 1985
+    }
+
+    var AppView = React.createClass({
+    	render: function(){
+    		console.log(this)
+    		return (
+    			<div className="yearWrapper">
+    				<h1 className="heading">Back to the Yard!</h1>
+    				<TimeMachine yearData={this.props.yearData.time}/>
+    			</div>
+    			)
+    	}
+    })
+
+
+    var TimeMachine = React.createClass({
+    	render:function(){
+    		console.log(this)
+    		return (
+    			<p key="year" className="year">{this.props.yearData}</p>
+    		)
+    	}
+    })
+
+
+    DOM.render(<AppView yearData={ironTime}/>, document.querySelector('.container'))
 }
 
 app()
