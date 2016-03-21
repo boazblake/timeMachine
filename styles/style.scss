@@ -127,3 +127,29 @@ body {
 /**
  * App code
  */
+
+
+.container{
+    width:60%;
+    margin:auto;
+    display:block;
+
+
+    .yearWrapper{
+        background-image: url('http://45.media.tumblr.com/e01e8688edd7ee94b61d547846e07a74/tumblr_nqvpog3elZ1qitjzjo1_1280.gif');
+        background-size:80%;
+        background-repeat: no-repeat;
+        background-position: top;
+        height:450px;
+    }
+
+    h1, h2{
+        text-align: center;
+        color: white;
+    }
+
+    h1 {
+        background-image: radial-gradient(yellow, #f06d06);
+    }
+
+}

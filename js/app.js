@@ -46,22 +46,51 @@ function app() {
 
     var AppView = React.createClass({
     	render: function(){
-    		console.log(this)
+    		/*console.log(this)*/
     		return (
-    			<div className="yearWrapper">
+    			<div className="TMWrapper">
     				<h1 className="heading">Back to the Yard!</h1>
     				<TimeMachine yearData={this.props.yearData.time}/>
     			</div>
-    			)
+    		)
     	}
     })
 
 
     var TimeMachine = React.createClass({
+
+    	_toFuture:function(){
+    		console.log(this)
+    		this.setState({
+    			year: parseInt(this.state.year) + 1
+    		})
+    	},
+
+
+    	_toPast:function(){
+    		console.log(this)
+    		this.setState({
+    			year: parseInt(this.state.year) - 1
+    		})
+    	},
+
+
+    	getInitialState:function(){
+    		return {
+    		    year:parseInt(this.props.yearData),
+    		    futureButt:'\u27F0',
+    		    pastButt:'\u27F1'
+    		}
+    	},
+
     	render:function(){
     		console.log(this)
     		return (
-    			<p key="year" className="year">{this.props.yearData}</p>
+    			<div className="yearWrapper">
+    				<button onClick={this._toFuture}>{this.state.futureButt}</button>
+    				<h2 key="year" className="year">{this.state.year}</h2>
+    				<button onClick={this._toPast}>{this.state.pastButt}</button>
+    			</div>
     		)
     	}
     })
