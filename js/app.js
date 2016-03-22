@@ -60,17 +60,32 @@ function app() {
     var TimeMachine = React.createClass({
 
     	_toFuture:function(){
-    		console.log(this)
-    		this.setState({
-    			year: parseInt(this.state.year) + 1
-    		})
+    		if(!this.state.ticking){
+    		    var incrementYear= function(){
+		    		console.log(this)
+		    		this.setState({
+		    			year: this.state.year + 1,
+		    			ticking: true,
+		    			futureButt: '||'
+    		    	})
+    			}
+    			var boundIncrementer = incrementYear.bind(this)
+    			this.intervalId = setInterval(boundIncrementer, 500)
+    		}
+    		else {
+    			clearInterval(this.intervalId)
+    			this.setState({
+    				ticking:false,
+    				futureButt: '\u27F0'
+    			})
+    		}
     	},
 
 
     	_toPast:function(){
     		console.log(this)
     		this.setState({
-    			year: parseInt(this.state.year) - 1
+    			year: this.state.year - 1
     		})
     	},
 
@@ -79,7 +94,8 @@ function app() {
     		return {
     		    year:parseInt(this.props.yearData),
     		    futureButt:'\u27F0',
-    		    pastButt:'\u27F1'
+    		    pastButt:'\u27F1',
+    		    ticking: false
     		}
     	},
 
