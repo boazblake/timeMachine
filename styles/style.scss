@@ -133,11 +133,12 @@ body {
     width:60%;
     margin:auto;
     display:block;
-    background-image: radial-gradient(yellow, #f06d06);
+    background-image: radial-gradient(rgba(230, 126, 34,1.0), rgba(211, 84, 0,1.0));
 
 
 
     .yearWrapper{
+        padding-top: 200px;
         background-image: url('http://45.media.tumblr.com/e01e8688edd7ee94b61d547846e07a74/tumblr_nqvpog3elZ1qitjzjo1_1280.gif');
         background-size:40%;
         background-repeat: no-repeat;
@@ -152,15 +153,17 @@ body {
     }
 
     h1{
-        background-image: radial-gradient(yellow, #f06d06);
+        background-image: linear-gradient(to top, rgba(230, 126, 34,1.0), rgba(46, 204, 113,1.0));
         text-align: center;
         color: white;
+        text-shadow: 4px 4px 9px rgba(150, 159, 150, 1);
     }
 
-    h2 {
-        vertical-align: bottom;
+    h2{
+        text-align: center;
+        color: white;
+        text-shadow: 4px 4px 9px rgba(150, 159, 150, 1);
     }
 
-
-
+    
 }

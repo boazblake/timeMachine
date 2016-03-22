@@ -119,8 +119,8 @@ function app() {
     		return (
     			<div className="yearWrapper">
     				<button className="buttons future"onClick={this._toFuture}>{this.state.futureButt}</button>
-    				<h2 key="year" className="year">{this.state.year}</h2>
     				<button className="buttons past" onClick={this._toPast}>{this.state.pastButt}</button>
+    				<h2 key="year" className="year">{this.state.year}</h2>
     			</div>
     		)
     	}
