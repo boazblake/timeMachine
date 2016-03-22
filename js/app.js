@@ -83,10 +83,25 @@ function app() {
 
 
     	_toPast:function(){
-    		console.log(this)
-    		this.setState({
-    			year: this.state.year - 1
-    		})
+    		if(!this.state.ticking) {
+    			var decrementYear = function(){
+		    		console.log(this)
+		    		this.setState({
+    					year: this.state.year - 1,
+    					ticking:true,
+    					pastButt:'||'
+    				})
+    			}
+    			var boundDecrement = decrementYear.bind(this)
+    			this.intervalId = setInterval(boundDecrement, 500)
+    		}
+    		else {
+    			clearInterval(this.intervalId)
+    			this.setState({
+    				ticking:false,
+    				pastButt: '\u27F1'
+    			})
+    		}
     	},
 
 
@@ -103,9 +118,9 @@ function app() {
     		console.log(this)
     		return (
     			<div className="yearWrapper">
-    				<button onClick={this._toFuture}>{this.state.futureButt}</button>
+    				<button className="buttons future"onClick={this._toFuture}>{this.state.futureButt}</button>
     				<h2 key="year" className="year">{this.state.year}</h2>
-    				<button onClick={this._toPast}>{this.state.pastButt}</button>
+    				<button className="buttons past" onClick={this._toPast}>{this.state.pastButt}</button>
     			</div>
     		)
     	}
